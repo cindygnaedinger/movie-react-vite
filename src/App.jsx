@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./App.css";
+import Search from "./components/Search";
 
 const App = () => {
-  const [count, setCount] = useState(0);
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <main>
@@ -16,7 +17,7 @@ const App = () => {
             obras que marcan un antes y después.
           </h1>
         </header>
-        <p>Search</p>
+        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>
     </main>
   );
