@@ -1,7 +1,9 @@
 import { useState } from "react";
 import "./App.css";
 import Search from "./components/Search";
-import { LampDemo } from "./components/LampDemo";
+import { AnimatedHeading } from "./components/AnimatedHeading";
+import { Spotlight } from "./components/Spotlight";
+import { SpotlightNewDemo } from "./components/SpotlightNewDemo";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -10,9 +12,9 @@ const App = () => {
     <main>
       <div className="pattern" />
 
-      <div className="wrapper">
-        <header>
-          <LampDemo />
+      <div>
+        <header style={{ margin: "0" }}>
+          <SpotlightNewDemo />
           <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </header>
       </div>

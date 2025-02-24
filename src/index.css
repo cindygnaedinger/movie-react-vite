@@ -38,7 +38,7 @@
   }
 
   header {
-    @apply sm:mt-10 mt-5;
+    @apply mt-0; /* Sin margen superior */
   }
 
   header img {
@@ -48,11 +48,11 @@
 
 @layer components {
   .pattern {
-    @apply bg-hero-pattern w-screen h-screen bg-center bg-cover absolute z-0;
+    @apply bg-hero-pattern fixed top-0 left-0 w-full h-full bg-center bg-cover -z-10; /* Ajuste de posición */
   }
 
   .wrapper {
-    @apply px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative z-10;
+    @apply max-w-7xl mx-auto flex flex-col relative z-10; /* Sin padding */
   }
 
   .trending {
