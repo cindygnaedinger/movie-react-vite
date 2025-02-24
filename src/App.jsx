@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Search from "./components/Search";
+import { LampDemo } from "./components/LampDemo";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -11,13 +12,9 @@ const App = () => {
 
       <div className="wrapper">
         <header>
-          <img src="./hero.png" alt="Hero Banner" />
-          <h1>
-            El cine como <span className="text-gradient">arte</span>: descubre
-            obras que marcan un antes y después.
-          </h1>
+          <LampDemo />
+          <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
         </header>
-        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       </div>
     </main>
   );

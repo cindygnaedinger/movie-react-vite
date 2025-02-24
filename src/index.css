@@ -4,20 +4,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: rgb(253, 94, 126);
+  --color-primary: #a10e2b;
   --bg-primary-dark: #1b1b1b;
-  --color-light-100: #f5a6b4;
-  --color-light-200: #ffd4d9;
+  --color-light-100: #d13c4a;
+  --color-light-200: #f5a6b4;
 
-  --color-gray-100: #9ca4ab;
+  --color-gray-100: #864e56;
 
-  --color-dark-100: #0f0d23;
+  --color-dark-100: #1e1e1e;
 
   --font-dm-sans: DM Sans, sans-serif;
 
   --breakpoint-xs: 480px;
-
-  --background-image-hero-pattern: url("/hero-bg.png");
 }
 
 @layer base {
@@ -78,7 +76,7 @@
   }
 
   .search {
-    @apply w-full bg-light-100/5 px-4 py-3 rounded-lg mt-10 max-w-3xl mx-auto;
+    @apply w-full bg-light-100/5 px-4 py-3 rounded-lg mt-4 max-w-3xl mx-auto;
 
     & div {
       @apply relative flex items-center;
@@ -143,11 +141,11 @@
 }
 
 @utility text-gradient {
-  @apply bg-linear-to-r from-[#FFD4D9] to-[rgb(253,94,126)] bg-clip-text text-transparent;
+  @apply bg-linear-to-r from-[#D13C4A] to-[#A10E2B] bg-clip-text text-transparent;
 }
 
 @utility fancy-text {
-  -webkit-text-stroke: 5px rgba(255, 179, 191, 0.5);
+  -webkit-text-stroke: 5px #d13c4a;
   font-size: 190px;
   font-family: "Bebas Neue", sans-serif;
 }

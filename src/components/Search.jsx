@@ -2,7 +2,9 @@ import React from "react";
 
 const Search = ({ searchTerm, setSearchTerm }) => {
   return (
-    <div className="search w-full mt-10 max-w-3xl mx-auto">
+    <div className="search w-full mt-4 max-w-3xl mx-auto">
+      {" "}
+      {/* Reducir mt-10 a mt-4 */}
       <div className="relative flex items-center w-full bg-light-100/5 px-4 py-3 rounded-lg">
         <img
           src="search.svg"
