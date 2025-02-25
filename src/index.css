@@ -37,10 +37,6 @@
     @apply min-h-screen relative;
   }
 
-  header {
-    @apply mt-0; /* Sin margen superior */
-  }
-
   header img {
     @apply w-full max-w-lg h-auto object-contain mx-auto drop-shadow-md;
   }
@@ -127,15 +123,15 @@
     }
 
     & .content span {
-      @apply text-sm text-gray-100;
+      @apply text-sm text-white;
     }
 
     & .content .lang {
-      @apply capitalize text-gray-100 font-medium text-base;
+      @apply capitalize text-white font-medium text-base;
     }
 
     & .content .year {
-      @apply text-gray-100 font-medium text-base;
+      @apply text-white font-medium text-base;
     }
   }
 }
