@@ -4,9 +4,10 @@ import Search from "./components/Search";
 import { SpotlightNewDemo } from "./components/SpotlightNewDemo";
 import Spinner from "./components/Spinner";
 import MovieCard from "./components/MovieCard";
+import { useDebounce } from "react-use";
+import { updateSearchCount } from "./appwrite";
 
-const API_BASE_URL =
-  "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
+const API_BASE_URL = "https://api.themoviedb.org/3";
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 
 const API_OPTIONS = {
@@ -22,14 +23,17 @@ const App = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [movieList, setMovieList] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
+
+  useDebounce(() => setDebouncedSearchTerm(searchTerm), 500, [searchTerm]);
 
   const fetchMovies = async (query = "") => {
     setIsLoading(true);
     setErrorMessage("");
     try {
       const endpoint = query
-        ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}}`
-        : `${API_BASE_URL}&api_key=${API_KEY}`;
+        ? `${API_BASE_URL}/search/movie?query=${encodeURIComponent(query)}`
+        : `${API_BASE_URL}/discover/movie?sort_by=popularity.desc`;
 
       const response = await fetch(endpoint, API_OPTIONS);
 
@@ -45,6 +49,8 @@ const App = () => {
         return;
       }
       setMovieList(data.results || []);
+
+      updateSearchCount();
     } catch (error) {
       console.log(`Error fetching movies: ${error}`);
       setErrorMessage("Error fetching movies. Please try again later.");
@@ -54,8 +60,8 @@ const App = () => {
   };
 
   useEffect(() => {
-    fetchMovies(searchTerm);
-  }, [searchTerm]);
+    fetchMovies(debouncedSearchTerm);
+  }, [debouncedSearchTerm]);
 
   return (
     <main>
@@ -70,7 +76,7 @@ const App = () => {
           />
         </header>
         <section className="all-movies">
-          <h2 className="mt-[40px]">All Movies</h2>
+          <h2 className="mt-[40px]">Películas</h2>
           {isLoading ? (
             <Spinner />
           ) : errorMessage ? (
